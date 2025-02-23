@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-backend",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "cross-env NODE_OPTIONS=\"--loader=ts-node/esm\" node src/index.ts",
+    "migrate": "cross-env NODE_OPTIONS=\"--loader=ts-node/esm\" node migrate.ts",
+    "migrate-start": "npm run migrate && npm run start"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "drizzle-kit": "^0.24.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.3.0",
+    "drizzle-orm": "^0.33.0",
+    "drizzle-zod": "^0.5.1",
+    "hono": "^4.6.3",
+    "postgres": "^3.4.4",
+    "zod": "^3.23.8"
+  }
+}
