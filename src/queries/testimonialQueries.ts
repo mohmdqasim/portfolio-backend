@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
 
-import { db } from "../models/db/index.ts";
-import type { InsertTestimonial } from "../models/testimonialModel.ts";
-import { testimonials as testimonialsTable } from "../models/db/schema/testimonialSchema.ts";
+import { db } from "../models/db";
+import type { InsertTestimonial } from "../models/testimonialModel";
+import { testimonials as testimonialsTable } from "../models/db/schema/testimonialSchema";
 
 export const getAllTestimonials = async () => {
   const result = await db.select().from(testimonialsTable);
@@ -22,7 +22,6 @@ export const getTestimonial = async (id: number) => {
 export const postTestimonial = async (data: InsertTestimonial) => {
   const result = await db
     .insert(testimonialsTable)
-    // @ts-ignore
     .values(data)
     .returning()
     .then((res) => res[0]);

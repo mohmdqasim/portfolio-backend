@@ -7,9 +7,9 @@ import {
   deleteProject,
   getAllProjects,
   getProject,
-} from "../queries/projectQueries.ts";
-import { insertProject } from "../models/projectModel.ts";
-import { insertProjectSchema } from "../models/db/schema/projectSchema.ts";
+} from "../queries/projectQueries";
+import { insertProject } from "../models/projectModel";
+import { insertProjectSchema } from "../models/db/schema/projectSchema";
 
 export const projectsRoute = new Hono()
   .get("/", async (c) => {

@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
 
-import { db } from "../models/db/index.ts";
-import type { InsertProject } from "../models/projectModel.ts";
-import { projects as projectsTable } from "../models/db/schema/projectSchema.ts";
+import { db } from "../models/db";
+import type { InsertProject } from "../models/projectModel";
+import { projects as projectsTable } from "../models/db/schema/projectSchema";
 
 export const getAllProjects = async () => {
   const result = await db.select().from(projectsTable);

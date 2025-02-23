@@ -7,9 +7,9 @@ import {
   deleteTestimonial,
   editTestimonial,
   getTestimonial,
-} from "../queries/testimonialQueries.ts";
-import { insertTestimonial } from "../models/testimonialModel.ts";
-import { insertTestimonialSchema } from "../models/db/schema/testimonialSchema.ts";
+} from "../queries/testimonialQueries";
+import { insertTestimonial } from "../models/testimonialModel";
+import { insertTestimonialSchema } from "../models/db/schema/testimonialSchema";
 
 export const testimonialsRoute = new Hono()
   .get("/", async (c) => {

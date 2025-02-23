@@ -1,6 +1,6 @@
 import type { InferInsertModel } from "drizzle-orm";
-import { insertProjectSchema } from "./db/schema/projectSchema.ts";
-import { projects as projectsTable } from "./db/schema/projectSchema.ts";
+import { insertProjectSchema } from "./db/schema/projectSchema";
+import { projects as projectsTable } from "./db/schema/projectSchema";
 
 // For zValidator Middleware for Request Body Type Validation
 export const insertProject = insertProjectSchema.omit({

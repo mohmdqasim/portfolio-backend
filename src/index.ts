@@ -1,9 +1,8 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-import { projectsRoute } from "./routes/projects.ts";
-import { testimonialsRoute } from "./routes/testimonials.ts";
-import { createServer } from "http";
+import { projectsRoute } from "./routes/projects";
+import { testimonialsRoute } from "./routes/testimonials";
 
 const app = new Hono();
 const baseApiRouter = app.basePath("/api");
@@ -22,10 +21,9 @@ app.use(
 baseApiRouter.route("/projects", projectsRoute);
 baseApiRouter.route("/testimonials", testimonialsRoute);
 
-// Create an HTTP server using Node.js
-const PORT = process.env.PORT || 8080;
-const server = createServer(app.fetch as any); // `as any` fixes TypeScript type issues
-
-server.listen(PORT, () => {
-  console.log(`Server Running on Port: ${PORT}`);
+Bun.serve({
+  fetch: app.fetch,
+  port: process.env.PORT || 8080,
 });
+
+console.log("Server Running on Port: 8080.");
